@@ -52,6 +52,7 @@ router.get("/trains/:id", (req, res) => {
       res.render("single-train", singleTrain.dataValues);
     })
     .catch((err) => {
+      console.log(err);
       res.status(500).end();
     });
 });
