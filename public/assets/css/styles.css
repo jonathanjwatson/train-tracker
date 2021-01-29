@@ -1,0 +1,23 @@
+nav {
+  background-color: #363636;
+}
+
+.btn {
+    background-color: #242F40;
+}
+
+.btn-large {
+    background-color: #242F40;
+}
+
+.btn-large:hover {
+    background-color: #3c5274;
+}
+
+.btn-large:focus {
+    background-color: #3c5274;
+}
+
+#featured-image-container {
+    text-align: center;
+}

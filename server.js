@@ -22,6 +22,8 @@ app.engine(
 );
 app.set("view engine", "handlebars");
 
+app.use(express.static("public"));
+
 app.get("/", (req, res) => {
   res.render("index");
 });
