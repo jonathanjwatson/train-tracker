@@ -1,2 +1,39 @@
 {{> navbar}}
 <h1>My new train form will go here.</h1>
+<div class="container">
+    <div class="row">
+        <form class="col s12" id="new-train-form">
+            <div class="row">
+                <div class="input-field col s6">
+                    <input placeholder="Train Name" id="name" type="text" class="validate">
+                    <label for="name">Name</label>
+                </div>
+                <div class="input-field col s6">
+                    <input placeholder="Train Number" id="number" type="number">
+                    <label for="number">Number</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input placeholder="Train Status" id="status" type="text">
+                    <label for="status">Status</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input placeholder="Current Station" id="currentStation" type="text">
+                    <label for="currentStation">Current Station</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input type="text" class="datepicker" placeholder="ETA" id="eta">
+                    <label for="eta">ETA</label>
+                </div>
+            </div>
+            <button class="waves-effect waves-light btn-large">Create Train</button>
+        </form>
+    </div>
+</div>
+
+<script type="text/javascript" src="/assets/js/new-train.js"></script>

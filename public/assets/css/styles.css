@@ -2,22 +2,80 @@ nav {
   background-color: #363636;
 }
 
+/* INPUT STYLING */
+
+input:not([type]):focus:not([readonly]),
+input[type="text"]:not(.browser-default):focus:not([readonly]),
+input[type="password"]:not(.browser-default):focus:not([readonly]),
+input[type="email"]:not(.browser-default):focus:not([readonly]),
+input[type="url"]:not(.browser-default):focus:not([readonly]),
+input[type="time"]:not(.browser-default):focus:not([readonly]),
+input[type="date"]:not(.browser-default):focus:not([readonly]),
+input[type="datetime"]:not(.browser-default):focus:not([readonly]),
+input[type="datetime-local"]:not(.browser-default):focus:not([readonly]),
+input[type="tel"]:not(.browser-default):focus:not([readonly]),
+input[type="number"]:not(.browser-default):focus:not([readonly]),
+input[type="search"]:not(.browser-default):focus:not([readonly]),
+textarea.materialize-textarea:focus:not([readonly]) {
+  border-bottom: 1px solid #242f40;
+  -webkit-box-shadow: 0 1px 0 0 #242f40;
+  box-shadow: 0 1px 0 0 #242f40;
+}
+
+input:not([type]):focus:not([readonly]) + label,
+input[type="text"]:not(.browser-default):focus:not([readonly]) + label,
+input[type="password"]:not(.browser-default):focus:not([readonly]) + label,
+input[type="email"]:not(.browser-default):focus:not([readonly]) + label,
+input[type="url"]:not(.browser-default):focus:not([readonly]) + label,
+input[type="time"]:not(.browser-default):focus:not([readonly]) + label,
+input[type="date"]:not(.browser-default):focus:not([readonly]) + label,
+input[type="datetime"]:not(.browser-default):focus:not([readonly]) + label,
+input[type="datetime-local"]:not(.browser-default):focus:not([readonly])
+  + label,
+input[type="tel"]:not(.browser-default):focus:not([readonly]) + label,
+input[type="number"]:not(.browser-default):focus:not([readonly]) + label,
+input[type="search"]:not(.browser-default):focus:not([readonly]) + label,
+textarea.materialize-textarea:focus:not([readonly]) + label {
+  color: #242f40;
+}
+
+/* DATEPICKER STYLING */
+
+.datepicker-date-display {
+  background-color: #242f40;
+}
+
+.datepicker-cancel,
+.datepicker-clear,
+.datepicker-today,
+.datepicker-done {
+  color: #242f40;
+}
+
+.datepicker-table td.is-selected {
+  background-color: #242f40;
+}
+
+/* BUTTON STYLING */
+
 .btn {
-    background-color: #242F40;
+  background-color: #242f40;
 }
 
 .btn-large {
-    background-color: #242F40;
+  background-color: #242f40;
 }
 
 .btn-large:hover {
-    background-color: #3c5274;
+  background-color: #3c5274;
 }
 
 .btn-large:focus {
-    background-color: #3c5274;
+  background-color: #3c5274;
 }
 
+/* CUSTOM STYLES */
+
 #featured-image-container {
-    text-align: center;
+  text-align: center;
 }
