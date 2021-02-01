@@ -62,6 +62,18 @@ textarea.materialize-textarea:focus:not([readonly]) + label {
   background-color: #242f40;
 }
 
+.btn:hover {
+  background-color: #3c5274;
+}
+
+.btn:focus {
+  background-color: #3c5274;
+}
+
+.btn.delete {
+  background-color: rgb(103, 18, 18);
+}
+
 .btn-large {
   background-color: #242f40;
 }

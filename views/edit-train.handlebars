@@ -1,2 +1,13 @@
 {{> navbar}}
-<h1>My edit train form will go here with pre-populated data.</h1>>
+<h1>My edit train form will go here with pre-populated data.</h1>
+<div class="container">
+    <div class="row">
+        <form class="col s12" id="edit-train-form">
+            {{> train-form}}
+            <input type="hidden" value={{id}} id="train-id" />
+            <button class="waves-effect waves-light btn-large">Update Train</button>
+        </form>
+    </div>
+</div>
+
+<script type="text/javascript" src="/assets/js/edit-train.js"></script>

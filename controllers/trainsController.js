@@ -103,7 +103,7 @@ router.put("/api/trains/:id", (req, res) => {
  * API Route to delete a train by ID
  */
 router.delete("/api/trains/:id", (req, res) => {
-  db.Train.delete({
+  db.Train.destroy({
     where: {
       id: req.params.id,
     },
