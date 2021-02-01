@@ -5,7 +5,7 @@
         <form class="col s12" id="new-train-form">
             <div class="row">
                 <div class="input-field col s6">
-                    <input placeholder="Train Name" id="name" type="text">
+                    <input placeholder="Train Name" id="name" type="text" class="validate">
                     <label for="name">Name</label>
                 </div>
                 <div class="input-field col s6">
@@ -27,7 +27,7 @@
             </div>
             <div class="row">
                 <div class="input-field col s12">
-                    <input placeholder="ETA" id="eta" type="text">
+                    <input type="text" class="datepicker" placeholder="ETA" id="eta">
                     <label for="eta">ETA</label>
                 </div>
             </div>
@@ -36,35 +36,4 @@
     </div>
 </div>
 
-<script type="text/javascript">
-    $(document).ready(function () {
-        $("#new-train-form").on("submit", function (event) {
-            event.preventDefault();
-            console.log("Submitted the form");
-            const newTrain = {
-                name: $("#name").val(),
-                number: $("#number").val(),
-                status: $("#status").val(),
-                currentStation: $("#currentStation").val(),
-                // TODO: Add eta with datepicker.
-            }
-
-            //TODO: Add eta validation
-
-            if (!newTrain.name || !newTrain.number || !newTrain.status || !newTrain.currentStation) {
-                alert("Please complete all fields!");
-            } else {
-                $.ajax({
-                    url: "/api/trains",
-                    method: "POST",
-                    data: newTrain
-                }).then(response => {
-                    console.log(response);
-                    window.location.href = "/trains";
-                })
-            }
-
-
-        })
-    })
-</script>
+<script type="text/javascript" src="/assets/js/new-train.js"></script>

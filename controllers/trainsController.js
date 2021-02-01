@@ -1,15 +1,25 @@
 const express = require("express");
 const db = require("../models");
+const moment = require("moment");
 
 const router = express.Router();
 
 /**
- * Route to render all trains to a page. 
+ * Route to render all trains to a page.
  */
 router.get("/trains", (req, res) => {
   db.Train.findAll()
     .then((allTrains) => {
-      res.render("all-trains", { trains: allTrains });
+      // console.log(allTrains);
+      const formattedTrains = allTrains.map((train) => {
+        const formattedTrain = { ...train.dataValues };
+        formattedTrain.eta = moment(train.eta)
+          ? moment(train.eta).format("MMMM Do YYYY, h:mm:ss a")
+          : "N/A";
+        return formattedTrain;
+      });
+      console.log(formattedTrains);
+      res.render("all-trains", { trains: formattedTrains });
     })
     .catch((err) => {
       console.log(err);
