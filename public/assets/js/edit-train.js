@@ -3,6 +3,11 @@ document.addEventListener("DOMContentLoaded", function () {
   const instances = M.Datepicker.init(elems, {});
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+  var elems = document.querySelectorAll("select");
+  var instances = M.FormSelect.init(elems, {});
+});
+
 $(document).ready(function () {
   $("#edit-train-form").on("submit", function (event) {
     event.preventDefault();

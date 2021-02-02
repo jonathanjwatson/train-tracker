@@ -10,8 +10,14 @@
 </div>
 <div class="row">
     <div class="input-field col s12">
-        <input placeholder="Train Status" id="status" type="text" value="{{status}}">
-        <label for="status">Status</label>
+        {{!-- <input placeholder="Train Status" id="status" type="text" value="{{status}}">
+        <label for="status">Status</label> --}}
+        <select id="status">
+            {{#each options}}
+            <option value="{{display}}" {{#if selected}}selected{{/if}}>{{display}}</option>
+            {{/each}}
+        </select>
+        <label>Status</label>
     </div>
 </div>
 <div class="row">

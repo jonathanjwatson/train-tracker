@@ -4,6 +4,8 @@ const moment = require("moment");
 
 const router = express.Router();
 
+const statusOptions = ["On Time", "Late", "Cancelled"];
+
 /**
  * Route to render all trains to a page.
  */
@@ -42,7 +44,24 @@ router.get("/trains/new", (req, res) => {
 router.get("/trains/:id/edit", (req, res) => {
   db.Train.findOne({ where: { id: req.params.id } })
     .then((singleTrain) => {
-      res.render("edit-train", singleTrain.dataValues);
+      const dataObject = {
+        ...singleTrain.dataValues,
+        options: [
+          {
+            display: "On Time",
+            selected: singleTrain.dataValues.status === "On Time",
+          },
+          {
+            display: "Late",
+            selected: singleTrain.dataValues.status === "Late",
+          },
+          {
+            display: "Cancelled",
+            selected: singleTrain.dataValues.status === "Cancelled",
+          },
+        ],
+      };
+      res.render("edit-train", dataObject);
     })
     .catch((err) => {
       console.log(err);
@@ -71,32 +90,40 @@ router.get("/trains/:id", (req, res) => {
  * API Route to create a new train.
  */
 router.post("/api/trains", (req, res) => {
-  db.Train.create(req.body)
-    .then((createdTrain) => {
-      res.json(createdTrain);
-    })
-    .catch((err) => {
-      console.log(err);
-      res.status(500).end();
-    });
+  if (statusOptions.includes(req.body.status)) {
+    db.Train.create(req.body)
+      .then((createdTrain) => {
+        res.json(createdTrain);
+      })
+      .catch((err) => {
+        console.log(err);
+        res.status(500).end();
+      });
+  } else {
+    res.status(400).end();
+  }
 });
 
 /**
  * API Route to update an existing train by ID
  */
 router.put("/api/trains/:id", (req, res) => {
-  db.Train.update(req.body, {
-    where: {
-      id: req.params.id,
-    },
-  })
-    .then((result) => {
-      res.json(result);
+  if (statusOptions.includes(req.body.status)) {
+    db.Train.update(req.body, {
+      where: {
+        id: req.params.id,
+      },
     })
-    .catch((err) => {
-      console.log(err);
-      res.status(404).end();
-    });
+      .then((result) => {
+        res.json(result);
+      })
+      .catch((err) => {
+        console.log(err);
+        res.status(404).end();
+      });
+  } else {
+    res.status(400).end();
+  }
 });
 
 /**
