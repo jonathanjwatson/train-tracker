@@ -34,7 +34,23 @@ router.get("/trains", (req, res) => {
  * Route to render the new train form.
  */
 router.get("/trains/new", (req, res) => {
-  res.render("new-train");
+  const dataObject = {
+    options: [
+      {
+        display: "On Time",
+        selected: singleTrain.dataValues.status === "On Time",
+      },
+      {
+        display: "Late",
+        selected: singleTrain.dataValues.status === "Late",
+      },
+      {
+        display: "Cancelled",
+        selected: singleTrain.dataValues.status === "Cancelled",
+      },
+    ],
+  };
+  res.render("new-train", dataObject);
 });
 
 /**
