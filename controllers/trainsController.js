@@ -38,15 +38,12 @@ router.get("/trains/new", (req, res) => {
     options: [
       {
         display: "On Time",
-        selected: singleTrain.dataValues.status === "On Time",
       },
       {
         display: "Late",
-        selected: singleTrain.dataValues.status === "Late",
       },
       {
         display: "Cancelled",
-        selected: singleTrain.dataValues.status === "Cancelled",
       },
     ],
   };
